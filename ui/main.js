@@ -3,7 +3,7 @@ var element = document.getElementById("main-text");
 element.innerHTML = "new value";
 var move = document.getElementById("im");
 function moveRight(){
-    moveLeft =moveLeft + 1;
+    marginLeft =marginLeft + 10;
 im.style.marginLeft = marginLeft + 'px';
     
 }
