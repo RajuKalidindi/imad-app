@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleone ={
+var article ={
+ 'article-1' :{
     title:'Article 1 | Raju',
     heading: 'Article 1',
     content: `
@@ -19,8 +20,38 @@ this is the content of article onethis is the content of article onethis is the 
 
 <p>this is the content of article onethis is the content of article onethis is the content of article one
 this is the content of article onethis is the content of article onethis is the content of article one</p> `
-};
+}, 
+'article-2' :{
+    title:'Article 2 | Raju',
+    heading: 'Article 2',
+    content: `
+    <p>this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one</p>
 
+<p>this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one</p>
+`
+},
+ 'article-3' :{
+    title:'Article 3| Raju',
+    heading: 'Article 3',
+    content: `
+    <p>this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one</p>
+
+<p>this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one</p>
+
+<p>this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one</p> 
+<p>this is the content of article onethis is the content of article onethis is the content of article one
+this is the content of article onethis is the content of article onethis is the content of article one</p> `
+}
+};
 function createTemplate(data){
     var title=data.title;
     var heading=data.heading;
@@ -57,8 +88,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-1', function (req,res){
- res.send(createTemplate(articleone)); 
+app.get('/:articleName', function (req,res){
+ res.send(createTemplate(article[articleName])); 
+var articleName=req.params.articleName;
 });
 
 
