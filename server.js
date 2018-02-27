@@ -10,17 +10,17 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-1', function (req,res){
-  res.send("Aricle one req is here");  
+ res.sendFile(path.join(__dirname, 'ui', 'article-1.html'));  
 });
 
 
 app.get('/article-2', function (req,res){
-  res.send("Aricle two req is here");  
+ res.sendFile(path.join(__dirname, 'ui', 'article-2.html'));  
 });
 
 
 app.get('/article-3', function (req,res){
-  res.send("Aricle three req is here");  
+ res.sendFile(path.join(__dirname, 'ui', 'article-3.html')); 
 });
 
 app.get('/ui/style.css', function (req, res) {
