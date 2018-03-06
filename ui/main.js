@@ -18,8 +18,7 @@ button.onclick = function() {
     request.send(null);
 };
 //submit name
-var nameInput = document.getElementById("name");
-var name = nameInput.value;
+
 var submit = document.getElementById("submit_btn");
 submit.onclick = function(){
      //create request
@@ -40,6 +39,8 @@ submit.onclick = function(){
       }  
     };
     //make request
+    var nameInput = document.getElementById("name");
+    var name = nameInput.value;
     request.open('GET', 'http://krkraju997.imad.hasura-app.io/submit-name?name='+ name, true);
     request.send(null);
    
